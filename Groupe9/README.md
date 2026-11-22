@@ -1,42 +1,51 @@
-# Nom du projet
+# Projet E2 : Validation de données cliniques FHIR avec SHACL
 
-## Groupe
+## Groupe9
 
 | Membre | Contribution principale |
-|---|---|
-| À compléter | À compléter |
+|(Antoine Vatte) | Création des règles SHACL, implémentation du `shacl_engine.py` |
+| (Atangana Jeremy) | Création des données RDF mockées, script `naive_engine.py` |
+| (Jules Barres) | Point d'entrée `main.py`, notebook de démo, rédaction des slides |
 
 ## Sujet
 
-- **Identifiant du catalogue :** à compléter
-- **Problématique :** à compléter
-- **MVP :** à compléter
+- **Identifiant du catalogue :** E2 — Valider des données cliniques FHIR avec SHACL
+- **Problématique :** Les dossiers patients s'échangent au format FHIR, mais une donnée syntaxiquement correcte (JSON valide) peut être cliniquement incohérente (ex: date de décès antérieure à une naissance). Les scripts de validation codés en dur sont difficiles à maintenir à grande échelle
+- **MVP :** Simulation de ressources FHIR en RDF, création d'une bibliothèque de formes SHACL structurelles et cliniques, et génération d'un rapport de validation.
 
 ## Architecture
 
-Décrivez les composants, les flux de données, les modèles et services externes. Ajoutez un schéma si utile.
-
+Le projet adopte une architecture modulaire séparant les données, les règles et les moteurs d'exécution :
+- `data/` : Contient le graphe de données patient mocké (`patient_invalide.ttl`) et la base de connaissances médicale (`shapes.ttl`).
+- `src/shacl_engine.py` : Module principal utilisant `pyshacl` pour valider le graphe RDF contre les règles cliniques.
+- `src/naive_engine.py` : Module de comparaison contenant l'approche algorithmique classique (script en dur).
+- `main.py` : Point d'entrée en ligne de commande (CLI) orchestrant la validation et mesurant les performances.
+- `demo.ipynb` : Notebook interactif reprenant la logique pour la démonstration.
 ## Installation
 
 ```bash
-# Commandes reproductibles à compléter
-```
+# Création d'un environnement virtuel
+python -m venv venv
 
-Figez les versions dans un fichier de dépendances ou un lockfile adapté à votre écosystème. Copiez `.env.example` vers `.env`, puis renseignez localement les valeurs. Ne commitez jamais `.env`.
+# Installation des dépendances figées
+pip install -r requirements.txt
 
 ## Utilisation
 
 ```bash
-# Commande de lancement à compléter
+# Lancement de la validation et du comparateur
+python main.py
 ```
 
 ## Tests
 
 ```bash
-# Commande de test non interactive à compléter
+# Exécution du script principal servant de test non interactif
+python main.py
 ```
 
 Indiquez les résultats obtenus et les cas d'échec couverts.
+Le système injecte volontairement un patient dont la date de naissance est en 1990 et la date de décès en 1985.Cas d'échec couverts : Le moteur SHACL intercepte l'aberration temporelle avec succès et renvoie un rapport d'erreur standardisé (violation de la contrainte SPARQL PatientDeathShape), empêchant l'intégration de la donnée erronée.
 
 ## Résultats et évaluation
 
