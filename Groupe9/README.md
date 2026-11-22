@@ -49,16 +49,33 @@ Le système injecte volontairement un patient dont la date de naissance est en 1
 
 ## Résultats et évaluation
 
-Présentez la baseline, le protocole, les métriques, les résultats et leur interprétation. Ne sélectionnez pas uniquement les exemples favorables.
+Baseline : Notre baseline est une fonction Python classique vérifiant les dates avec des conditions if/else.
+
+Protocole : Le script main.py chronomètre l'exécution des deux approches sur la même aberration et compare la complexité de maintenance.
+
+Métriques et interprétation : Le script naïf s'exécute plus rapidement sur un patient unique. Cependant, l'approche SHACL prouve son énorme avantage métier : elle permet de séparer complètement la logique médicale de l'exécution. L'ajout de 500 nouvelles règles de validation se ferait uniquement en enrichissant le fichier shapes.ttl, sans avoir à modifier, retester ou recompiler le moindre script Python.
 
 ## Limites et plan B
 
-Documentez les limites connues, le coût, les dépendances externes et le mode de démonstration de secours.
+Limites connues : Pour ce MVP, nous n'avons pas implémenté le pipeline complet de conversion JSON-LD / FHIR vers RDF, qui est complexe. Nous avons injecté des données directement modélisées en Turtle (RDF) simulant l'export d'un patient Synthea.
+
+Dépendances externes : pyshacl et rdflib.
+
+Plan B : En cas de défaillance matérielle lors de la soutenance, les autres membres disposeront du notebook pour le présenter
 
 ## Répartition du travail
 
-Expliquez la contribution de chaque membre et le mode de collaboration.
+Antoine a pris en charge la recherche sur la syntaxe SHACL/SPARQL pour formuler les contraintes médicales.
 
+Jeremy s'est occupé de la structure des données RDF et de la baseline classique pour le comparatif.
+
+Jules a structuré le dépôt (modularisation), géré l'intégration sur GitHub, et préparé les livrables de soutenance.Le groupe a collaboré via des sessions de travail partagées et des commits réguliers sur le dépôt distant.
 ## Licence et références
 
-Listez les licences du code, des modèles et des données, puis les ressources utilisées.
+Code source : Distribué sous licence MIT.
+
+Bibliothèques : rdflib et pyshacl.
+
+https://www.w3.org/TR/shacl/
+
+https://hl7.org/fhir/rdf.html
