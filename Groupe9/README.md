@@ -17,6 +17,7 @@
 
 Le projet adopte une architecture modulaire séparant les données, les règles et les moteurs d'exécution :
 - `data/` : Contient le graphe de données patient mocké (`patient_invalide.ttl`) et la base de connaissances médicale (`shapes.ttl`).
+- `src/generator.py` : Script générant dynamiquement 1000 patients avec un taux d'erreur clinique aléatoire (test de robustesse).
 - `src/shacl_engine.py` : Module principal utilisant `pyshacl` pour valider le graphe RDF contre les règles cliniques.
 - `src/naive_engine.py` : Module de comparaison contenant l'approche algorithmique classique (script en dur).
 - `main.py` : Point d'entrée en ligne de commande (CLI) orchestrant la validation et mesurant les performances.
