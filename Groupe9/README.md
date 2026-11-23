@@ -3,9 +3,9 @@
 ## Groupe9
 
 | Membre | Contribution principale |
-|(Antoine Vatte) | Création des règles SHACL, implémentation du `shacl_engine.py` |
-| (Atangana Jeremy) | Création des données RDF mockées, script `naive_engine.py` |
-| (Jules Barres) | Point d'entrée `main.py`, notebook de démo, rédaction des slides |
+|(@AntoV789264) | Création des règles SHACL, implémentation du `shacl_engine.py` |
+| (Jeremy) | Création des données RDF mockées, script `naive_engine.py` |
+| (Jules) | Point d'entrée `main.py`, notebook de démo, rédaction des slides |
 
 ## Sujet
 
