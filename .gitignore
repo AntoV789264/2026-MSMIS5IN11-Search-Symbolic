@@ -24,3 +24,4 @@ Thumbs.db
 # Teacher-side agent notes (contain Moodle/Drive IDs and student data) — never publish
 CLAUDE.md
 .claude/
+data/patients_db.ttl
