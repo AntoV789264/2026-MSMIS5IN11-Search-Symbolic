@@ -6,7 +6,7 @@
 |---|---|
 | @AntoV789264 | Création des règles SHACL, implémentation du `shacl_engine.py` |
 | @Blak024 | Création des données RDF mockées, script `naive_engine.py` |
-| @Jules | Point d'entrée `main.py`, notebook de démo, rédaction des slides |
+| @Seluj3110 | Point d'entrée `main.py`, notebook de démo, rédaction des slides |
 
 ## Sujet
 
@@ -64,7 +64,7 @@ python main.py
 
 - **@AntoV789264** a pris en charge la recherche sur la syntaxe SHACL/SPARQL pour formuler les contraintes médicales.
 - **@Blak024** s'est occupé de la structure des données RDF et de la baseline classique pour le comparatif.
-- **@Jules** a structuré le dépôt (modularisation), géré l'intégration sur GitHub, et préparé les livrables de soutenance.
+- **@Seluj3110** a structuré le dépôt (modularisation), géré l'intégration sur GitHub, et préparé les livrables de soutenance.
 
 *Le groupe a collaboré via des sessions de travail partagées et des commits réguliers sur le dépôt distant.*
 
